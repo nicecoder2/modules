@@ -66,7 +66,7 @@ class kzdQuotesMod(loader.Module):
             id = reply.fwd_from.channel_id
             
         if sender.fwd_from.from_id:
-            id = sender.fwd_from.from_id:
+            id = sender.fwd_from.from_id
         
         sender = await message.client.get_entity(id)
         name = "Deleted Account" if user and sender.deleted else telethon.utils.get_display_name(sender)
