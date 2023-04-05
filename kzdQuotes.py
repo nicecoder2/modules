@@ -58,11 +58,15 @@ class kzdQuotesMod(loader.Module):
             args = args.replace(".file","").strip()
 
         text = args or reply.text
-        sender = user = reply.fwd_from
+        sender = user = reply.sender
+
         if sender:
             id = sender.id if sender.id != 1087968824 else reply.chat.id
         else:
             id = reply.fwd_from.channel_id
+            
+        if sender.fwd_from.from_id:
+            id = sender.fwd_from.from_id:
         
         sender = await message.client.get_entity(id)
         name = "Deleted Account" if user and sender.deleted else telethon.utils.get_display_name(sender)
