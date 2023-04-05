@@ -58,7 +58,7 @@ class kzdQuotesMod(loader.Module):
             args = args.replace(".file","").strip()
 
         text = args or reply.text
-        sender = user = reply.fwd_from.from_id
+        sender = user = reply.fwd_from
         if sender:
             id = sender.id if sender.id != 1087968824 else reply.chat.id
         else:
